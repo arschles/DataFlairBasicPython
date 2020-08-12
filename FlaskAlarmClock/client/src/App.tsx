@@ -7,8 +7,21 @@ function App() {
   const [currentTime, setCurrentTime] = useState(0);
 
   const getTime = async () => {
-    const sample = "Testfart";
-    const response = await axios.post("http://localhost:5000/test", sample);
+    const config = {
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+
+    const body = JSON.stringify({
+      time: "20:48:30",
+    });
+
+    const response = await axios.post(
+      "http://localhost:5000/time",
+      body,
+      config
+    );
     setCurrentTime(response.data.time);
   };
 
