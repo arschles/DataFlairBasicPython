@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import axios from "axios";
 
+import { ClockInput } from "./components/ClockInput";
+
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -45,6 +47,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <ClockInput />
       <p>The current time is {currentTime}</p>
     </div>
   );
