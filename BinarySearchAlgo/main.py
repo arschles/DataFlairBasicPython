@@ -18,7 +18,7 @@ class BinarySearchAlgo:
 
 if __name__ == "__main__":
     list_array = [1,4,5,6,7,8,10,11,33]
-    number_to_search =5 
+    number_to_search = 100
     x = BinarySearchAlgo(list_array, number_to_search)
     x.BinarySearch()
 
