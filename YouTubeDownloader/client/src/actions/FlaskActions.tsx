@@ -8,10 +8,20 @@ export const sendURL = async (YouTubeURL: any) => {
       "content-type": "application/json",
     },
   };
-  const response = await axios.post(
+  const response_ = await axios.post(
     "http://127.0.0.1:5000/converter",
     body,
     config
   );
+
+  const response = await getFile();
+
+  return response;
+};
+
+export const getFile = async () => {
+  const response = await axios.get("http://127.0.0.1:5000/getFile");
+  console.log(response);
+
   return response;
 };

@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, send_file
 from flask_cors import CORS, cross_origin
 import pytube
 
@@ -15,8 +15,18 @@ def URL_converter():
         youtube = pytube.YouTube(url)
         video = youtube.streams.first()
         video.download()
-        return url
+        return url 
 
     except Exception as e:
-        return TypeError("This is just a safe error for testing")
+        print(e)
 
+
+
+@app.route('/getFile')
+@cross_origin()
+def return_file():
+    try:
+        return send_file("../../Video/download.jpeg",attachment_filename="Test",as_attachment=True)
+
+    except Exception as e:
+        print(e)
