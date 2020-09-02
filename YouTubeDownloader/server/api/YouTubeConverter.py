@@ -6,19 +6,26 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/converter', methods=['POST'])
+@app.route('/converter', methods=['GET','POST'])
 @cross_origin()
 def URL_converter():
-    try:
-        url = request.json
-        print(url)
-        youtube = pytube.YouTube(url)
-        video = youtube.streams.first()
-        video.download()
-        return url 
+    if request.method == "POST":
 
-    except Exception as e:
-        print(e)
+
+
+        try:
+            url = request.json
+            print(url)
+            youtube = pytube.YouTube(url)
+            video = youtube.streams.first()
+            video.download("../../Video",video.title)
+            return url 
+
+        except Exception as e:
+            print(e)
+    elif request.method == "GET":
+
+        return send_file("../../Video/download.jpeg",attachment_filename="Test",as_attachment=True)
 
 
 

@@ -14,13 +14,15 @@ export const sendURL = async (YouTubeURL: any) => {
     config
   );
 
-  const response = await getFile();
+  const response = window.location.assign("http://127.0.0.1:5000/converter");
+
+  //const response = await getFile();
 
   return response;
 };
 
 export const getFile = async () => {
-  const response = await axios.get("http://127.0.0.1:5000/getFile");
+  const response = window.location.assign("http://127.0.0.1:5000/getFile");
   console.log(response);
 
   return response;
