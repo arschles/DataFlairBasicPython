@@ -5,7 +5,7 @@ export const sendURL = async (YouTubeURL: any) => {
 
   const config = {
     headers: {
-      "content-type": "application/json",
+      "Content-Type": "application/json",
     },
   };
   const response_ = await axios.post(
@@ -14,11 +14,12 @@ export const sendURL = async (YouTubeURL: any) => {
     config
   );
 
-  const response = window.location.assign("http://127.0.0.1:5000/converter");
+  //const response = window.location.assign("http://127.0.0.1:5000/converter");
 
   //const response = await getFile();
 
-  return response;
+  //const response = window.location.assign("http://127.0.0.1:5000/converter");
+  return response_;
 };
 
 export const getFile = async () => {

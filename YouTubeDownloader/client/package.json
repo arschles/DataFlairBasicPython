@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-api": "cd ../server && pipenv run flask run --no-debugger",
+    "start-api": "cd ../server && pipenv run flask run",
     "build": "postcss src/assets/tailwind.css -o src/assets/buildtailwind.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
