@@ -8,18 +8,14 @@ export const sendURL = async (YouTubeURL: any) => {
       "Content-Type": "application/json",
     },
   };
-  const response_ = await axios.post(
-    "http://127.0.0.1:5000/converter",
-    body,
-    config
-  );
+  await axios.post("http://127.0.0.1:5000/converter", body, config);
 
-  //const response = window.location.assign("http://127.0.0.1:5000/converter");
+  const response = window.location.assign("http://127.0.0.1:5000/converter");
 
   //const response = await getFile();
 
   //const response = window.location.assign("http://127.0.0.1:5000/converter");
-  return response_;
+  //return response;
 };
 
 export const getFile = async () => {

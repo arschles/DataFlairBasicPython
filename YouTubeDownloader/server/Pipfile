@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 pytube3 = {git = "https://gitlab.com/obuilds/public/pytube"}
+python-dotenv = "*"
+flask-cors = "*"
 
 [requires]
 python_version = "3.8"
