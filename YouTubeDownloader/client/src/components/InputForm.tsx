@@ -3,6 +3,7 @@ import { sendURL } from "../actions/FlaskActions";
 
 export const InputForm = () => {
   const [urlState, setUrlState] = useState("");
+  const [loadingState, setLoadingState] = useState("");
 
   const onSubmitForm = (e: any) => {
     e.preventDefault();
