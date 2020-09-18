@@ -8,13 +8,17 @@ export const sendURL = async (YouTubeURL: any) => {
       "Content-Type": "application/json",
     },
   };
-  const response = await axios.post(
-    "http://127.0.0.1:5000/converter",
-    body,
-    config
-  );
-
-  const downloadFile = await getFile(response);
+  try {
+    const response = await axios.post(
+      "http://127.0.0.1:5000/converter",
+      body,
+      config
+    );
+    const downloadFile = await getFile(response);
+  } catch (err) {
+    console.log("This broke lets see if i can capture");
+    return false;
+  }
 };
 
 export const getFile = async (response: any) => {

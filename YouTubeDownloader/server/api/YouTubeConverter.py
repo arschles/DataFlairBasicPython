@@ -14,7 +14,11 @@ def URL_converter():
 
     if request.method == "POST":
         url = request.json
+        # try:
         youtube = pytube.YouTube(url)
+        # except Exception as e:
+        # error = "URL недействителен в формате YouTube. Проверьте еще раз"
+        # return error
         video = youtube.streams.first()
 
         title = video.title

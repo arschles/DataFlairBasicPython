@@ -40,7 +40,7 @@ export const InputForm = () => {
             >
               Скачать
             </button>
-            {loadingState && <Loader type="ThreeDots" />}
+            {loadingState && <Loader type="ThreeDots" color="#19619d" />}
           </div>
         </form>
       </div>
