@@ -1,13 +1,16 @@
+import Loader from "react-loader-spinner";
 import React, { useState } from "react";
 import { sendURL } from "../actions/FlaskActions";
 
 export const InputForm = () => {
   const [urlState, setUrlState] = useState("");
-  const [loadingState, setLoadingState] = useState("");
+  const [loadingState, setLoadingState] = useState(false);
 
-  const onSubmitForm = (e: any) => {
+  const onSubmitForm = async (e: any) => {
     e.preventDefault();
-    sendURL(urlState);
+    setLoadingState(true);
+    await sendURL(urlState);
+    setLoadingState(false);
   };
 
   const onChange = (e: any) => {
@@ -37,6 +40,7 @@ export const InputForm = () => {
             >
               Скачать
             </button>
+            {loadingState && <Loader type="ThreeDots" />}
           </div>
         </form>
       </div>

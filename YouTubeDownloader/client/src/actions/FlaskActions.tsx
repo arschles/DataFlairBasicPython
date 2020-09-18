@@ -15,14 +15,10 @@ export const sendURL = async (YouTubeURL: any) => {
   );
 
   const downloadFile = await getFile(response);
-
-  return downloadFile;
 };
 
 export const getFile = async (response: any) => {
   const redirect = window.location.assign(
     `http://127.0.0.1:5000/getFile/${response.data}`
   );
-
-  return "Done";
 };
