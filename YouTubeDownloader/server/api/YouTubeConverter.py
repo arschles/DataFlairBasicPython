@@ -24,7 +24,7 @@ def URL_converter():
         title = video.title
         title = re.sub(r'[^\w]', ' ', title)
         title = title.replace(" ", "_")
-        video.download("/home/sasha/Downloads", title)
+        video.download("../Videos", title)
 
         return title
 
@@ -36,7 +36,7 @@ def URL_converter():
 @cross_origin()
 def return_file(video_title):
     try:
-        return send_file(f"/home/sasha/Downloads/{video_title}.mp4", attachment_filename=f"{video_title}.mp4", as_attachment=True)
+        return send_file(f"../Videos/{video_title}.mp4", attachment_filename=f"{video_title}.mp4", as_attachment=True)
 
     except Exception as e:
         return e

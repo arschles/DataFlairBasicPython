@@ -10,7 +10,7 @@ export const sendURL = async (YouTubeURL: any) => {
   };
   try {
     const response = await axios.post(
-      "http://127.0.0.1:5000/converter",
+      "http://127.0.0.1:8080/converter",
       body,
       config
     );
@@ -23,6 +23,6 @@ export const sendURL = async (YouTubeURL: any) => {
 
 export const getFile = async (response: any) => {
   const redirect = window.location.assign(
-    `http://127.0.0.1:5000/getFile/${response.data}`
+    `http://127.0.0.1:8080/getFile/${response.data}`
   );
 };
