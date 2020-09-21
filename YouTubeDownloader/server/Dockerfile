@@ -1,18 +1,3 @@
-#FROM ubuntu:20.04
-
-#RUN apt-get update -y && \
-        #apt-get install -y python3-pip python-dev git
-
-#COPY ./requirements.txt /app/requirements.txt
-
-#WORKDIR /app
-
-#RUN pip3 install -r requirements.txt
-
-#COPY . /app
-
-#CMD ["python3","-m","flask","run"]
-
 FROM python:3.8
 
 EXPOSE 5000
