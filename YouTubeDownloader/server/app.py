@@ -8,17 +8,13 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
-@app.route('/converter', methods=['GET', 'POST'])
+@app.route('/api/converter', methods=['GET', 'POST'])
 @cross_origin()
 def URL_converter():
 
     if request.method == "POST":
         url = request.json
-        # try:
         youtube = pytube.YouTube(url)
-        # except Exception as e:
-        # error = "URL недействителен в формате YouTube. Проверьте еще раз"
-        # return error
         video = youtube.streams.first()
 
         title = video.title
@@ -33,7 +29,7 @@ def URL_converter():
         return "This is a miss call"
 
 
-@app.route('/getFile/<video_title>')
+@app.route('/api/getFile/<video_title>')
 @cross_origin()
 def return_file(video_title):
     try:
@@ -44,4 +40,4 @@ def return_file(video_title):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=8080)

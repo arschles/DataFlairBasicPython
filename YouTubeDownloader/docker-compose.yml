@@ -3,12 +3,11 @@ services:
   client:
     build: ./client
     ports:
-      - 3000:80
-    environment:
-      #- "BROWSER=none"
-      - SERVER_HOST=server:8080
-    #command: npm run start
+      - "3000:3000" 
     stdin_open: true
 
   server:
     build: ./server
+    command: gunicorn --bind 0.0.0.0:8080 app:app
+    ports:
+      - "8080:8080"
