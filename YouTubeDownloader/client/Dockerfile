@@ -1,34 +1,21 @@
-FROM node:12.16.1 
+FROM node:12.16.1 as install
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci
+#RUN npm install
 
 COPY . .
 
-CMD ["npm","start"]
+#CMD ["npm","start"]
+RUN npm run build
 
-
-
-#FROM node:lts-slim as install
-
-#WORKDIR /app
-
-#COPY . . 
-
-#RUN npm install 
-
-#RUN npm run build
-
-#CMD npm run start
-
-#FROM nginx:alpine
-
-#COPY --from=install /app/public /usr/share/nginx/html
-#EXPOSE 80
-#CMD ["nginx","-g","daemon off;"]
-
+#production
+FROM nginx:stable-alpine
+COPY --from=install /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
 
