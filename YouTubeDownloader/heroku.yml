@@ -4,5 +4,5 @@ build:
     server: server/Dockerfile
 
 run:
-  server: gunicorn --bind 0.0.0.0:${PORT} app:app
+  server: gunicorn --bind 0.0.0.0:8080 app:app
 
